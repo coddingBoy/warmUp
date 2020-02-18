@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render 1`] = `
+<div
+  className="sidebar"
+>
+  <ul
+    className="container"
+  >
+    <li>
+      <input
+        autoComplete="on"
+        onChange={[Function]}
+        placeholder="Starting location"
+        value=""
+      />
+      
+    </li>
+    <li>
+      <input
+        onChange={[Function]}
+        placeholder="Drop-off point"
+        value=""
+      />
+      
+    </li>
+  </ul>
+  <div
+    className="buttonGroup"
+  >
+    <button
+      id="submit"
+      onClick={[Function]}
+    >
+      submit
+    </button>
+    <button
+      id="reset"
+      onClick={[Function]}
+    >
+      reset
+    </button>
+  </div>
+</div>
+`;
