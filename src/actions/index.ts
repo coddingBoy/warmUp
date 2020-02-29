@@ -1,6 +1,6 @@
 import { Dispatch, Action } from "redux"
 import { ThunkAction } from 'redux-thunk'
-import { defaultState } from "../reducers"
+import { defaultState } from "../reducers/increaseReducer"
 
 export const INCREMENT_COUNTER = 'INCREASE'
 

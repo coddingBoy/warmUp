@@ -1,28 +1,42 @@
 import React from 'react'
-import { connect, ConnectedProps } from 'react-redux'
-import { defaultState } from '../reducers'
+import { connect } from 'react-redux'
 import { incrementAsync } from '../actions'
+
 import { bindActionCreators, Dispatch, Action } from 'redux'
+import { indexReducer } from '../reducers'
+import { useHistory } from 'react-router'
 
 interface ownProps {
     background: string
 }
 const mapDispatch = (dispatch: Dispatch<Action>) => bindActionCreators({incrementAsync}, dispatch)
-
-function A(props: defaultState & ReturnType<typeof mapDispatch> & ownProps) {
-return (
-    <>
-        <div>{props.counter}</div>
-        <button
-            onClick={() => {
-                props.incrementAsync(1)
-            }}
-        >click</button>
-    </>
-)
-}
-export default connect((state: defaultState) => {
+const mapState = (state: indexReducer) => {
     return {
-        counter: state.counter, 
+        counter: state.increaseReducer.counter, 
     }
-}, mapDispatch)(A)
+}
+
+function A(props: ReturnType<typeof mapState> & ReturnType<typeof mapDispatch> & ownProps) {
+// let history = useHistory()
+let history = useHistory()
+    return (
+        <>
+            <div>{props.counter}</div>
+            <button
+                onClick={() => {
+                    props.incrementAsync(1)
+                }}
+            >
+                click
+            </button>
+            <button
+                onClick={() => {
+                    history.push('/b')
+                }}
+            >
+                click
+            </button>
+        </>
+    )
+}
+export default connect(mapState, mapDispatch)(A)

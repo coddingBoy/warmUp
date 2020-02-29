@@ -1,12 +1,8 @@
-import { INCREMENT_COUNTER, incrementasyncType } from "../actions"
+import {combineReducers } from 'redux'
+import increaseReducer from './increaseReducer'
 
-export interface defaultState {
-    counter: number
-}
-export default (state = { counter: 0 }, action: incrementasyncType): defaultState => {
-    const nextState = {...state}
-    if (action.type === INCREMENT_COUNTER) {
-        nextState.counter = state.counter += action.number
-    }
-    return nextState
-}
+const reducers = combineReducers({
+    increaseReducer,
+})
+export default reducers
+export type indexReducer = ReturnType<typeof reducers>

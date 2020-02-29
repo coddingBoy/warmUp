@@ -12,6 +12,7 @@
         "jsx": "react",
         "allowSyntheticDefaultImports": true,
         "baseUrl": "./",
+        "allowUmdGlobalAccess": true,
         "paths": {
             "*": ["types/*"]
         }

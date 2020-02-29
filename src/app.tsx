@@ -1,5 +1,6 @@
 import React from 'react'
-import { Provider, DefaultRootState } from 'react-redux'
+import { Provider } from 'react-redux'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { createStore, applyMiddleware } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import { createLogger } from 'redux-logger'
@@ -7,18 +8,22 @@ import { hot } from 'react-hot-loader/root'
 import './styles.css'
 import reducers from './reducers'
 import A from './containers/A'
+import B from './containers/B'
 
 const store = createStore(reducers, applyMiddleware(thunkMiddleware, createLogger()))
-window.store = store
-class App extends React.Component {
-    render() {
-        return (
-            <Provider store={store}>
+
+function App() {
+    return (
+        <Provider store={store}>
+            <Router>
+                <Switch>
+                    <Route path={'/b'} component={B}/>
+                </Switch>
+            </Router>
             <div>hello world</div>
-            <A background="#fff"/>
-            </Provider>
-        )
-    }
+            <A background='#fff' />
+        </Provider>
+    )
 }
 
 export default hot(App)
