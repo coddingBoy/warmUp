@@ -4,7 +4,7 @@ import { incrementAsync } from '../actions'
 
 import { bindActionCreators, Dispatch, Action } from 'redux'
 import { indexReducer } from '../reducers'
-import { useHistory } from 'react-router'
+import { useHistory } from 'react-router-dom'
 
 interface ownProps {
     background: string

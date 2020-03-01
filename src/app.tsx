@@ -18,10 +18,9 @@ function App() {
             <Router>
                 <Switch>
                     <Route path={'/b'} component={B}/>
+                    <Route path={'/'} component={A}/>
                 </Switch>
             </Router>
-            <div>hello world</div>
-            <A background='#fff' />
         </Provider>
     )
 }
